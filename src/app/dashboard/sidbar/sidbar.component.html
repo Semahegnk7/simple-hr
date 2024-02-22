@@ -1,0 +1,12 @@
+
+
+
+<div class="sidebar">
+  <a [ngClass]="{active: url==='/dashboard'}" [routerLink]="['/dashboard']" (click)="changeUrl('/dashboard')">Dashboard</a>
+    <a [ngClass]="{active: url==='/company'||url==='/addCompany'}" [routerLink]="['/company']" (click)="changeUrl('/company')">Company</a>
+    <a [ngClass]="{active: url==='/candidates'||url==='/addCandidate'}" [routerLink]="['/candidates']" (click)="changeUrl('/candidates')">Candidates</a>
+    <a [ngClass]="{active: url==='/departments'||url==='/addDepartment'}" [routerLink]="['/departments']" (click)="changeUrl('/departments')">Departments</a>
+    <a [ngClass]="{active: url==='/employees'||url==='/addEmployee'}" [routerLink]="['/employees']" (click)="changeUrl('/employees')">Employees</a>
+     <a [ngClass]="{active: url==='/salary'|| url==='/addSalary'}" [routerLink]="['/salary']" (click)="changeUrl('/salary')">Salary</a>
+  </div>
+  

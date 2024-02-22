@@ -1,0 +1,152 @@
+<div class="container mt-3">
+    <div class="mt-4 p-3 bg-secondary text-white rounded d-flex">
+
+        <div class="container">
+            <h1>Candidate Add form</h1>
+        </div>
+        <div class="container float-end">
+            <h2 class="text-end"><button mat-raised-button color="primary"[routerLink]="['/candidates']">Candidate list</button></h2>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <form [formGroup]="registrationForm">
+        <div class="container p-2 bg-light">
+        <div class="form-group row">
+            <div class="col">
+                <label class="form-label mt-3">First Name</label>
+                <input class="form-control" type="text" formControlName="fname" required 
+                    placeholder="Enter last Name">
+                <div
+                    *ngIf="registrationForm.controls['fname'].invalid && registrationForm.controls['fname'].touched">
+                    <p class="text-danger" style="font-size:11px;">This field is required!!</p>
+                </div>
+
+            </div>        
+            <div class="col">
+                <label class="form-label mt-3">Last Name</label>
+                <input class="form-control" type="text" formControlName="lname" required 
+                    placeholder="Enter First Name">
+                <div
+                    *ngIf="registrationForm.controls['lname'].invalid && registrationForm.controls['lname'].touched">
+                    <p class="text-danger" style="font-size:11px;">This field is required!!</p>
+                </div>
+
+            </div>
+           
+        </div>
+        
+        
+        <div class="form-group row">
+           
+                <div class="col">
+                    <label class="form-label mt-3">Email</label>
+                    <input class="form-control" type="email" formControlName="email" required 
+                        placeholder="Enter last Name">
+                    <div
+                        *ngIf="registrationForm.controls['email'].invalid && registrationForm.controls['email'].touched">
+                        <p class="text-danger" style="font-size:11px;">This field is required!!</p>
+                    </div>
+    
+                </div>
+                <div class="col">
+                <label class="form-label mt-3">Address</label>
+                <input class="form-control" type="text" formControlName="address" required 
+                    placeholder="Enter last Name">
+                <div
+                    *ngIf="registrationForm.controls['address'].invalid && registrationForm.controls['address'].touched">
+                    <p class="text-danger" style="font-size:11px;">This field is required!!</p>
+                </div>
+
+            </div>
+            
+        </div>
+        <div class="form-group row">
+           
+            <div class="col">
+                <label class="form-label mt-3">Company</label>
+                     <select class="form-select" formControlName="company" aria-label="Default select example" >
+                        <option value="" disabled="">Select Company</option>
+                        <option *ngFor="let company of companyName; let i=index" value="{{company}}">{{company}}
+                    </option>
+                      </select>
+                <div
+                    *ngIf="registrationForm.controls['education'].invalid && registrationForm.controls['education'].touched">
+                    <p class="text-danger" style="font-size:11px;">This field is required!!</p>
+                </div>
+
+            </div>
+            <div class="col">
+                <label class="form-label mt-3">Phone</label>
+                <input class="form-control" type="number" formControlName="phone" required 
+                    placeholder="Enter last Name">
+                <div
+                    *ngIf="registrationForm.controls['phone'].invalid && registrationForm.controls['phone'].touched">
+                    <p class="text-danger" style="font-size:11px;">This field is required!!</p>
+                </div>
+
+            </div>
+        
+    </div>
+        <div class="col">
+            <label class="form-label mt-3">Resume</label>
+            <textarea class="form-control" rows="4" type="text" formControlName="resume" required 
+                placeholder="Enter  resume"></textarea>
+            <div
+                *ngIf="registrationForm.controls['resume'].invalid && registrationForm.controls['resume'].touched">
+                <p class="text-danger" style="font-size:11px;">This field is required!!</p>
+            </div>
+
+        </div>
+        <div class="form-group row">
+            
+            <div class="col">
+                <label class="form-label mt-3">Education</label>
+                     <select class="form-select" formControlName="education" aria-label="Default select example">
+                        <option value="Diploma" selected>Diploma</option>
+                        <option value="Bachelors">Degree</option>
+                        <option value="MSC">Masters</option>
+                      </select>
+                <div
+                    *ngIf="registrationForm.controls['education'].invalid && registrationForm.controls['education'].touched">
+                    <p class="text-danger" style="font-size:11px;">This field is required!!</p>
+                </div>
+
+            </div>
+            <div class="col">
+                <label class="form-label mt-3">Status</label>
+                     <select class="form-select" formControlName="status" aria-label="Default select example">
+                        <option value="New" selected>New</option>
+                        <option value="Interview">Interview</option>
+                        <option value="Interview scheduled">Interview scheduled</option>
+                        <option value="Hired">Hired</option>
+                      </select>
+                <div
+                    *ngIf="registrationForm.controls['status'].invalid && registrationForm.controls['status'].touched">
+                    <p class="text-danger" style="font-size:11px;">This field is required!!</p>
+                </div>
+
+            </div>
+            <div class="col">
+                <label class="form-label mt-3">Birth Date</label>
+                <input class="form-control" type="date" formControlName="dob" required 
+                    placeholder="Enter last Name">
+                <div
+                    *ngIf="registrationForm.controls['dob'].invalid && registrationForm.controls['dob'].touched">
+                    <p class="text-danger" style="font-size:11px;">This field is required!!</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col">
+            <button mat-raised-button color="primary"*ngIf="!update" (click)="addNew()">Submit</button>
+            <button mat-raised-button color="primary" *ngIf="update" (click)="updateInfo()">Update</button>
+        </div>
+        <div class="col">
+            <button mat-raised-button color="warn" (click)="reset()" >Reset</button>
+        </div>
+        </div>
+    </div>
+    </form>
+</div>

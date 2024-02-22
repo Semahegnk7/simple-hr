@@ -1,0 +1,87 @@
+<div class="container mt-3">
+    <div class="mt-4 p-3 bg-secondary text-white rounded d-flex">
+
+        <div class="container">
+            <h1>Salary Add form</h1>
+        </div>
+        <div class="container float-end">
+            <h2 class="text-end"><button mat-raised-button color="primary"[routerLink]="['/salary']">Salary list</button></h2>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <form [formGroup]="registrationForm">
+        <div class="container p-2 bg-light">
+        <div class="form-group row">
+                       
+            
+           
+            <div class="col">
+                <label class="form-label mt-3">Employee Name</label>
+                     <select class="form-select" formControlName="employeeName" aria-label="Default select example" >
+                        <option value="" disabled="">Select Company</option>
+                        <option *ngFor="let employee of employeeName; let i=index" value="{{employee}}">{{employee}}
+                    </option>
+                      </select>
+                <div
+                    *ngIf="registrationForm.controls['employeeName'].invalid && registrationForm.controls['employeeName'].touched">
+                    <p class="text-danger" style="font-size:11px;">This field is required!!</p>
+                </div>
+
+            </div>
+            <div class="col">
+                <label class="form-label mt-3">Level</label>
+               
+                    <select class="form-select" formControlName="level" aria-label="Default select example">
+                        <option value="Junior" selected>Junior</option>
+                        <option value="Senior">Senior</option>
+                        <option value="Manager">Manager</option>
+                      </select>
+                <div
+                    *ngIf="registrationForm.controls['level'].invalid && registrationForm.controls['level'].touched">
+                    <p class="text-danger" style="font-size:11px;">This field is required!!</p>
+                </div>
+
+            </div>
+        </div>
+        
+        
+        
+        <div class="form-group row ">
+            <div class="col">
+            <label class="form-label mt-3">Effective Date</label>
+                 <input class="form-control" type="date" formControlName="effectiveDate" aria-label="Default control example">
+                    
+                  
+            <div
+                *ngIf="registrationForm.controls['effectiveDate'].invalid && registrationForm.controls['effectiveDate'].touched">
+                <p class="text-danger" style="font-size:11px;">This field is required!!</p>
+            </div>
+
+        </div>
+        <div class="col">
+            <label class="form-label mt-3">Salary</label>
+            <input class="form-control" type="number" formControlName="salary" required 
+                placeholder="Enter last Name">
+            <div
+                *ngIf="registrationForm.controls['salary'].invalid && registrationForm.controls['salary'].touched">
+                <p class="text-danger" style="font-size:11px;">This field is required!!</p>
+            </div>
+
+        </div>
+
+            </div>
+           
+        
+        <div class="row mt-5">
+            <div class="col">
+            <button mat-raised-button color="primary" *ngIf="!update" (click)="getEmployee()" (click)="addNew()">Submit</button>
+            <button mat-raised-button color="primary" *ngIf="update" (click)="getEmployee()"(click)="updateInfo()">Update</button>
+        </div>
+        <div class="col">
+            <button mat-raised-button color="warn" (click)="reset()" >Reset</button>
+        </div>
+        </div>
+    </div>
+    </form>
+</div>
